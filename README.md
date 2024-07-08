@@ -3,15 +3,14 @@ Shared Task for the SICON 2024 task
 
 # Step 1: Setting up
 
-# install dependencies
+## Install dependencies
 
 pip install -r requirements.txt
 
-# extract data and 
+## Extract Data and create directories
 mkdir ckpts
 mkdir csv_files
 tar -xzvf data.tar.gz
-
 
 # Step 2: Run the baseline Flan-T5 model on one of the indomain datasets
 
