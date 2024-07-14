@@ -15,7 +15,8 @@ def get_instruct_tuned_results():
     data_dir = '../csv_files/'
 
     results_dict = ddict(list)
-    
+
+    print("File, Macro F1, Micro F1, Accuracy")
     for file in os.listdir(data_dir):
 
         if 'flan-t5-base' in file:
@@ -110,11 +111,10 @@ def get_instruct_tuned_results():
         results_dict['macro_F1'].append(macro_f1)
         results_dict['micro_F1'].append(micro_f1)
         results_dict['acc'].append(acc)
-
         print(f'{file}\t\t{macro_f1}\t{micro_f1}\t{acc}')
 
     results_df = pd.DataFrame(results_dict)
-    # results_df.to_csv('TF_instruct_tuned_results.csv', index=False)
+    results_df.to_csv('TF_instruct_tuned_results.csv', index=False)
 
 
 

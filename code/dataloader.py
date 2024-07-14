@@ -36,7 +36,7 @@ def sample_fraction(dataset, fraction, task):
 def stratified_sample(dataset, n_per_class, task):
     instances_by_label = defaultdict(list)
     for index, instance in enumerate(dataset):
-        lbl              = f"{instance['label']}_{instane['answer']}"
+        lbl              = f"{instance['label']}_{instance['answer']}"
         instances_by_label[lbl].append((index, instance))
 
     all_sampled_instances = []

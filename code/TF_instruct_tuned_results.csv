@@ -1,0 +1,3 @@
+model,src_dataset,tgt_dataset,split,seed,macro_F1,micro_F1,acc
+flan-t5-base,persuasion,negotiation,test,0,0.18,0.22,0.58
+flan-t5-base,persuasion,negotiation,dev,0,0.18,0.22,0.58

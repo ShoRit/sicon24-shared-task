@@ -120,19 +120,19 @@ Process the arguments for the baseline code
 def get_arguments():
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_dir',      type=str, default='../data/', help='The input directory')
-    parser.add_argument('--fewshot',        type=float, default=-1.0, help='The fraction of data to use')
+    parser.add_argument('--fewshot',        type=float, default=5, help='The fraction of data to use')
     parser.add_argument('--mode',           type=str, default='ID', help='The mode to run in')
     parser.add_argument('--task',           type=str, default='persuasion', help='The input directory')
     parser.add_argument('--src_task',       type=str, default='persuasion', help='source dataset')
     parser.add_argument('--tgt_task',       type=str, default='persuasion', help='target dataset')
     parser.add_argument('--turns',          type=int, default=5, help='Past context length')
-    parser.add_argument('--model_name',     type=str, default='flan-t5-small', help='The model to use')
+    parser.add_argument('--model_name',     type=str, default='flan-t5-base', help='The model to use')
     parser.add_argument('--do_train',       type=int, default=1, help='Whether to train the model')
     parser.add_argument('--do_predict',        type=int, default=1, help='Whether to test the model')
     parser.add_argument('--max_seq_len',    type=int, default=512, help='The maximum sequence length')
-    parser.add_argument('--batch_size',     type=int, default=64, help='The batch size')
+    parser.add_argument('--batch_size',     type=int, default=32, help='The batch size')
     parser.add_argument('--gpu',            type=str, default='0', help='The gpu to use')
-    parser.add_argument('--epochs',         type=int, default=5, help='The number of training epochs')
+    parser.add_argument('--epochs',         type=int, default=1, help='The number of training epochs')
     parser.add_argument('--seed',           type=int, default=0, help='The random seed')
     parser.add_argument('--learning_rate',  type=float, default=2e-5, help='The learning rate')
     parser.add_argument('--grad_accumulation_steps', type=int, default=1, help='The number of gradient accumulation steps')
@@ -223,7 +223,7 @@ if __name__ =='__main__':
     '''
 
     loaded_checkpoint_file = f"../ckpts/ID-{args.src_task}-{args.src_task}-{args.model_name}--1.0-{args.turns}-{args.seed}.pt"
-    
+    # print("loaded_checkpoint_file = ", loaded_checkpoint_file)
     if args.mode == 'TF':
         # assert the loaded_checkpoint_file exists
         print(loaded_checkpoint_file)
@@ -362,7 +362,7 @@ if __name__ =='__main__':
         '''
 
         print("============== EVALUATION ON TEST DATA ==============")
-
+        # print("checkpoint_file = ", checkpoint_file)
         model.load_state_dict(torch.load(checkpoint_file))
         model.to(device)
         model.eval()
