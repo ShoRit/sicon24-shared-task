@@ -20,7 +20,7 @@ tar -xzvf data.tar.gz
 
 ```
 cd code
-python3 run_cls_model.py --mode ID --task persuasion --model_name flan-t5-base --do_train 1 --do_predict 0 
+python3 run_cls_models.py --mode ID --task persuasion --model_name flan-t5-base --do_train 1 --do_predict 0 
 ```
 
 # Step 3: Evaluation
@@ -29,14 +29,14 @@ python3 run_cls_model.py --mode ID --task persuasion --model_name flan-t5-base -
 
 ```
 cd code
-python3 run_cls_model.py --mode ID --task persuasion --do_train 0 --do_predict 1
+python3 run_cls_models.py --mode ID --task persuasion --do_train 0 --do_predict 1
 ```
 
 ## Source and Target Tasks differ
 
 ```
 cd code
-python3 run_cls_model.py --mode TF --src_task persuasion --tgt_task negotiation --do_train 0 --do_predict 1 --fewshot 0
+python3 run_cls_models.py --mode TF --src_task persuasion --tgt_task negotiation --do_train 0 --do_predict 1 --fewshot 0
 ```
 
 ## Carry out the actual evaluation 
