@@ -3,7 +3,7 @@ Shared Task for the SICON 2024 task
 
 # Step 1: Setting up
 
-## Install dependencies
+## Install dependencies (Python 3.9)
 ```
 pip install -r requirements.txt
 ```
